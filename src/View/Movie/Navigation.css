@@ -17,7 +17,7 @@
 }
 
 .rmdb-navigation-content p {
-  font-family: "Abel", sans-serif;
+  font-family: var(--font-roboto);
   font-size: 22px;
   float: left;
   color: #fff;

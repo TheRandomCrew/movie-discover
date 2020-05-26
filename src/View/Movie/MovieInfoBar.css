@@ -28,13 +28,9 @@
   float: left;
 }
 
-.fa-time,
-.fa-revenue {
+.icon-time,
+.icon-revenue,
+.icon-budget {
   float: left;
   margin-top: -4px;
-}
-
-.fa-budget {
-  float: left;
-  margin-top: -3px;
 }

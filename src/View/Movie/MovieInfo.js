@@ -48,10 +48,11 @@ const MovieInfo = ({ movie, directors }) => (
           );
         })}
         {movie.homepage && (
-          <a href={movie.homepage}>
+          <a href={movie.homepage} className="homepage-link">
+            More
             <img
               src="https://img.icons8.com/cute-clipart/64/000000/open-in-browser.png"
-              className="homepage-link"
+              
               alt="More info"
             />
           </a>
