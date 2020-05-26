@@ -8,36 +8,31 @@
 
 .rmdb-header-content {
   max-width: 1280px;
-  min-height: 120px;
+  min-height: 40px;
   height: auto;
-  padding: 20px 0px;
+  padding: 10px 0px;
   margin: 0 auto;
   box-sizing: border-box;
   overflow: hidden;
 }
 
 .rmdb-logo {
-  width: 300px;
-  margin-top: 20px;
-  float: left;
+  display: flex;
+  align-items: center;
 }
 
-.rmdb-tmdb-logo {
-  width: 122px;
-  margin-top: 25px;
-  float: right;
+.rmdb-logo span {
+  color: white;
+  font-family: var(--font-roboto);
+  font-size: xx-large;
+  font-weight: bold;
+  font-style: italic;
 }
 
 @media screen and (max-width: 500px) {
   .rmdb-header-content {
     max-width: 1280px;
     min-height: 0px;
-  }
-
-  .rmdb-tmdb-logo {
-    display: inline-block;
-    width: 80px;
-    margin-top: 0px;
   }
 
   .rmdb-logo {

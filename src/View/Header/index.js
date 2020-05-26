@@ -6,18 +6,13 @@ const Header = () => {
   return (
     <div className="rmdb-header">
       <div className="rmdb-header-content">
-        <Link to="/">
+        <Link to="/" className="rmdb-logo">
           <img
-            src="./images/reactMovie_logo.png"
-            className="rmdb-logo"
-            alt="rmdb-logo"
+            src="https://img.icons8.com/ultraviolet/40/000000/starred-ticket.png"
+            alt="Movie"
           />
+          <span>Discover!</span>
         </Link>
-        <img
-          src="./images/tmdb_logo.png"
-          className="rmdb-tmdb-logo"
-          alt="tmdb-logo"
-        />
       </div>
     </div>
   );
