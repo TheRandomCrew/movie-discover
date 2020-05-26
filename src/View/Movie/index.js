@@ -3,15 +3,12 @@ import { API_URL, API_KEY } from "../../config";
 import Navigation from "./Navigation";
 import MovieInfo from "./MovieInfo";
 import MovieInfoBar from "./MovieInfoBar";
-import Actor from "./Actor";
 import Spinner from "../Spinner";
 import "./Movie.css";
-import FourColGrid from "../FourColGrid";
 
 class Movie extends Component {
   state = {
     movie: null,
-    actors: null,
     directors: [],
     loading: false
   };
@@ -55,7 +52,6 @@ class Movie extends Component {
                   );
                   this.setState(
                     {
-                      actors: result.cast,
                       directors,
                       loading: false
                     },
@@ -79,7 +75,7 @@ class Movie extends Component {
       <div>
         {this.state.movie ? (
           <div>
-            <Navigation movie={this.props.location.movieName} />
+            <Navigation movie={this.state.movie.original_title} />
             <MovieInfo
               movie={this.state.movie}
               directors={this.state.directors}
@@ -90,20 +86,6 @@ class Movie extends Component {
               revenue={this.state.movie.revenue}
             />
           </div>
-        ) : null}
-
-        {this.state.actors ? (
-          <div className="rmdb-moviegrid">
-            <FourColGrid header={"Actors"}>
-              {this.state.actors.map((element, i) => {
-                return <Actor key={i} actor={element} />;
-              })}
-            </FourColGrid>
-          </div>
-        ) : null}
-
-        {!this.state.actors && !this.state.loading ? (
-          <h1>No Movie Found!</h1>
         ) : null}
         {this.state.loading ? <Spinner /> : null}
       </div>

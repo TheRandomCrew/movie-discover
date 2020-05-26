@@ -1,15 +1,13 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
-const Home = () => (<p>Home</p>)
-const Movie = () => (<p>Movie</p>)
-const NotFound = () => (<p>Not Found</p>)
+import { Header, Discover, Movie, NotFound } from "./View";
 
 const App = () => (
   <BrowserRouter>
     <React.Fragment>
+      <Header />
       <Switch>
-        <Route path="/" component={Home} exact />
+        <Route path="/" component={Discover} exact />
         <Route path="/:movieId" component={Movie} exact />
         <Route component={NotFound} />
       </Switch>
