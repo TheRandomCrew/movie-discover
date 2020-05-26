@@ -10,7 +10,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/Israel-Laguan/movie-discover/">
-    <img src="https://img.icons8.com/clouds/100/000000/starred-ticket.png"/>
+    <img src="public/MovieDiscovery.png"/>
   </a>
 
   <h1 align="center">
@@ -174,6 +174,8 @@ Icons from:
 <a href="https://icons8.com/icon/13917/full-image">Icons8</a>
 <a target="_blank" href="https://icons8.com/icons/set/starred-ticket">Movie Ticket icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 Icons made by <a href="https://www.flaticon.com/authors/catkuro" title="catkuro">catkuro</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+Banner by https://www.canva.com
+
 # License
 
 [![License][badge-license]](http://badges.mit-license.org)
