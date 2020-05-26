@@ -60,7 +60,9 @@ the movie.
 - Redux and Redux Toolkit
 - No Style Framework, only pure CSS (Looking at you Bootstrap...)
 - Async Fetch
+- React-Router
 - Mobile Optimized
+- Enviromental Variables for API key
 
 # Run It
 
