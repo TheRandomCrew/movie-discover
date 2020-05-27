@@ -49,6 +49,13 @@ information about movies. If the search field is empty, show the discovery resul
 - Upon clicking, a detail view must be shown, displaying more information about
 the movie.
 
+## How to Use the App
+
+- Find the most popular movie at the moment on the front page
+- Click on specific movie to view full-blown information
+- Use the Search bar to find you favorites movies and their information
+- Bookmark and use the App at your own pace!
+
 # Features
 
 ![javascript][]
@@ -177,6 +184,8 @@ Icons from:
 <a target="_blank" href="https://icons8.com/icons/set/starred-ticket">Movie Ticket icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 Icons made by <a href="https://www.flaticon.com/authors/catkuro" title="catkuro">catkuro</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 Banner by https://www.canva.com
+
+Style: [oliver-gomes](https://github.com/oliver-gomes/react-movie)
 
 # License
 

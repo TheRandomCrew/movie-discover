@@ -1,7 +1,6 @@
 .rmdb-searchbar {
     width: 100%;
     height: 105px;
-    background: #1c1c1c;
     position: relative;
     padding: 25px 20px 0px 20px;
     box-sizing: border-box;
@@ -12,18 +11,17 @@
     max-width: 1280px;
     width: 100%;
     height: 55px;
-    background:#353535;
+    background: white;
     margin: 0 auto;
     border-radius: 40px;
     position: relative;
-    color: #fff;
+    color: #353535;
   }
   
-  .rmdb-fa-search {
+  .rmdb-icon-search {
     position: absolute;
-    left: 20px;
-    top: 12px;
-    color: #fff;
+    left: 5px;
+    top: 5px;
   }
   
   .rmdb-searchbar-input {
@@ -35,7 +33,6 @@
     border: 0;
     background: transparent;
     height: 40px;
-    color: #fff;
   }
   
   .rmdb-searchbar-input:focus {
@@ -45,6 +42,5 @@
   @media screen and (max-width: 720px) {
     .rmdb-searchbar-input {
       font-size: 28px;
-      color: #fff;
     }
   }

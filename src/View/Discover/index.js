@@ -6,7 +6,7 @@ import {
   API_KEY,
   IMAGE_BASE_URL,
   POSTER_SIZE,
-  BACKDROP_SIZE
+  BACKDROP_SIZE,
 } from "../../config";
 
 import HeroImage from "./HeroImage";
@@ -18,12 +18,13 @@ import Spinner from "../Spinner";
 
 class Home extends Component {
   state = {
+    rating: 10,
     movies: [],
     heroImage: null,
     loading: false,
     currentPage: 0,
     totalPages: 0,
-    searchTerm: ""
+    searchTerm: "",
   };
 
   componentDidMount() {
@@ -32,13 +33,13 @@ class Home extends Component {
     this.fetchItems(endpoint);
   }
 
-  searchItems = searchTerm => {
+  searchItems = (searchTerm) => {
     console.log(searchTerm);
     let endpoint = "";
     this.setState({
       movies: [],
       loading: true,
-      searchTerm
+      searchTerm,
     });
 
     if (searchTerm === "") {
@@ -52,12 +53,13 @@ class Home extends Component {
   loadMoreItems = () => {
     let endpoint = "";
     this.setState({
-      loading: true
+      loading: true,
     });
 
     if (this.state.searchTerm === "") {
-      endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${this
-        .state.currentPage + 1}`;
+      endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${
+        this.state.currentPage + 1
+      }`;
     } else {
       endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query${
         this.state.searchTerm
@@ -66,16 +68,16 @@ class Home extends Component {
     this.fetchItems(endpoint);
   };
 
-  fetchItems = endpoint => {
+  fetchItems = (endpoint) => {
     fetch(endpoint)
-      .then(result => result.json())
-      .then(result => {
+      .then((result) => result.json())
+      .then((result) => {
         this.setState({
           movies: [...this.state.movies, ...result.results],
           heroImage: this.state.heroImage || result.results[0],
           loading: false,
           currentPage: result.page,
-          totalPages: result.total_pages
+          totalPages: result.total_pages,
         });
       });
   };
@@ -86,13 +88,12 @@ class Home extends Component {
         {this.state.heroImage ? (
           <div>
             <HeroImage
-              image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${
-                this.state.heroImage.backdrop_path
-              }`}
+              movieId={this.state.heroImage.id}
+              image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${this.state.heroImage.backdrop_path}`}
               title={this.state.heroImage.original_title}
-              text={this.state.heroImage.overview}
-            />
-            <SearchBar callback={this.searchItems} />
+            >
+              <SearchBar callback={this.searchItems} />
+            </HeroImage>
           </div>
         ) : null}
         <div className="rmdb-home-grid">

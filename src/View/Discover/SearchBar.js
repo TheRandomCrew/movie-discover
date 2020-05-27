@@ -3,12 +3,12 @@ import "./SearchBar.css";
 
 class SearchBar extends Component {
   state = {
-    value: ""
+    value: "",
   };
 
   timeout = null;
 
-  doSearch = event => {
+  doSearch = (event) => {
     this.setState({ value: event.target.value });
     clearTimeout(this.timeout);
 
@@ -21,10 +21,15 @@ class SearchBar extends Component {
     return (
       <div className="rmdb-searchbar">
         <div className="rmdb-searchbar-content">
+          <img
+            src="https://img.icons8.com/cotton/50/000000/search--v2.png"
+            className="rmdb-icon-search"
+            alt="search"
+          />
           <input
             type="text"
             className="rmdb-searchbar-input"
-            placeholder="Search"
+            placeholder="Search for a movie..."
             onChange={this.doSearch}
             value={this.state.value}
           />
