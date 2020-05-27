@@ -105,11 +105,10 @@ class Discover extends Component {
             return (
               <MovieThumb
                 key={i}
-                clickable={true}
                 image={
                   element.poster_path
                     ? `${IMAGE_BASE_URL}${POSTER_SIZE}/${element.poster_path}`
-                    : "./images/no_image.jpg"
+                    : "https://img.icons8.com/clouds/500/000000/no-image.png"
                 }
                 movieId={element.id}
                 movieName={element.original_title}
