@@ -26,6 +26,8 @@
 
 # [Live Version Here](http://movie-discover.surge.sh/)
 
+![discover](docs/discover.png)
+
 ## Table of Contents
 
 1. [The Project](#the-project)
@@ -54,7 +56,7 @@ the movie.
 
 - Discover the most popular movie at the moment on the front page
 
-![discover](docs/discover.png)
+![rating](docs/rating.png)
 
 - Click on specific movie to view full-blown information
 
