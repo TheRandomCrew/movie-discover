@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { Header, Movie, NotFound } from "./View";
-import { Discover } from "./app/pages";
+import { Header, NotFound } from "./View";
+import { Discover, Movie } from "./app/pages";
 
 const App = () => (
   <BrowserRouter>

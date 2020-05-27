@@ -18,7 +18,7 @@ const MovieInfo = ({ movie, directors }) => (
           image={
             movie.poster_path
               ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`
-              : "./images/no_image.jpg"
+              : "https://img.icons8.com/clouds/500/000000/no-image.png"
           }
           clickable={false}
         />
