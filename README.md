@@ -186,6 +186,7 @@ Icons made by <a href="https://www.flaticon.com/authors/catkuro" title="catkuro"
 Banner by https://www.canva.com
 
 Style: [oliver-gomes](https://github.com/oliver-gomes/react-movie)
+StarRating: [Here](https://codesandbox.io/s/v0n20v6143)
 
 # License
 

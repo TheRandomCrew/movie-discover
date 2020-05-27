@@ -15,6 +15,7 @@ import FourColGrid from "../FourColGrid";
 import MovieThumb from "../MovieThumb";
 import LoadMoreBtn from "./LoadMoreBtn";
 import Spinner from "../Spinner";
+import StarRating from "./StarRating";
 
 class Home extends Component {
   state = {
@@ -29,9 +30,16 @@ class Home extends Component {
 
   componentDidMount() {
     this.setState({ loading: true });
-    const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+    const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}`;
     this.fetchItems(endpoint);
   }
+
+  selectStar = (star) => {
+    this.setState((prevState) => ({
+      ...prevState,
+      rating: star * 2,
+    }));
+  };
 
   searchItems = (searchTerm) => {
     console.log(searchTerm);
@@ -43,9 +51,9 @@ class Home extends Component {
     });
 
     if (searchTerm === "") {
-      endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+      endpoint = `${API_URL}movie/popular?api_key=${API_KEY}`;
     } else {
-      endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${searchTerm}`;
+      endpoint = `${API_URL}search/movie?api_key=${API_KEY}&query=${searchTerm}`;
     }
     this.fetchItems(endpoint);
   };
@@ -57,11 +65,11 @@ class Home extends Component {
     });
 
     if (this.state.searchTerm === "") {
-      endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${
+      endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&page=${
         this.state.currentPage + 1
       }`;
     } else {
-      endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query${
+      endpoint = `${API_URL}search/movie?api_key=${API_KEY}&query${
         this.state.searchTerm
       }$page=${this.state.currentPage + 1}`;
     }
@@ -98,24 +106,37 @@ class Home extends Component {
         ) : null}
         <div className="rmdb-home-grid">
           <FourColGrid
-            header={this.state.searchTerm ? "Search Result" : "Popular Movies"}
+            header={
+              <div className="rmdb-grid-header">
+                <h1>
+                  {this.state.searchTerm ? "Search Result" : "Popular Movies"}
+                </h1>
+                <StarRating
+                  totalStars={5}
+                  selectStar={this.selectStar}
+                  starsSelected={this.state.rating / 2}
+                />
+              </div>
+            }
             loading={this.state.loading}
           >
-            {this.state.movies.map((element, i) => {
-              return (
-                <MovieThumb
-                  key={i}
-                  clickable={true}
-                  image={
-                    element.poster_path
-                      ? `${IMAGE_BASE_URL}${POSTER_SIZE}/${element.poster_path}`
-                      : "./images/no_image.jpg"
-                  }
-                  movieId={element.id}
-                  movieName={element.original_title}
-                />
-              );
-            })}
+            {this.state.movies
+              .filter((movie) => movie.vote_average < this.state.rating - 1)
+              .map((element, i) => {
+                return (
+                  <MovieThumb
+                    key={i}
+                    clickable={true}
+                    image={
+                      element.poster_path
+                        ? `${IMAGE_BASE_URL}${POSTER_SIZE}/${element.poster_path}`
+                        : "./images/no_image.jpg"
+                    }
+                    movieId={element.id}
+                    movieName={element.original_title}
+                  />
+                );
+              })}
           </FourColGrid>
           {this.state.loading ? <Spinner /> : null}
           {this.state.currentPage <= this.state.totalPages &&
