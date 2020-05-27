@@ -11,22 +11,24 @@ import {
 
 import HeroImage from "./HeroImage";
 import SearchBar from "./SearchBar";
-import FourColGrid from "../FourColGrid";
+import FourColGrid from "./FourColGrid";
 import MovieThumb from "../MovieThumb";
 import LoadMoreBtn from "./LoadMoreBtn";
 import Spinner from "../Spinner";
 import StarRating from "./StarRating";
 
+const defaultState = {
+  rating: 10,
+  movies: [],
+  heroImage: null,
+  loading: false,
+  currentPage: 0,
+  totalPages: 0,
+  searchTerm: "",
+}
+
 class Home extends Component {
-  state = {
-    rating: 10,
-    movies: [],
-    heroImage: null,
-    loading: false,
-    currentPage: 0,
-    totalPages: 0,
-    searchTerm: "",
-  };
+  state = defaultState;
 
   componentDidMount() {
     this.setState({ loading: true });
@@ -42,7 +44,6 @@ class Home extends Component {
   };
 
   searchItems = (searchTerm) => {
-    console.log(searchTerm);
     let endpoint = "";
     this.setState({
       movies: [],
@@ -91,16 +92,30 @@ class Home extends Component {
   };
 
   render() {
+    const {
+      rating,
+      movies,
+      heroImage,
+      loading,
+      currentPage,
+      totalPages,
+      searchTerm,
+    } = this.state;
+    const {
+      searchItems,
+      selectStar,
+      loadMoreItems
+    } = this;
     return (
       <div className="rmdb-home">
-        {this.state.heroImage ? (
+        {heroImage ? (
           <div>
             <HeroImage
-              movieId={this.state.heroImage.id}
-              image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${this.state.heroImage.backdrop_path}`}
-              title={this.state.heroImage.original_title}
+              movieId={heroImage.id}
+              image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${heroImage.backdrop_path}`}
+              title={heroImage.original_title}
             >
-              <SearchBar callback={this.searchItems} />
+              <SearchBar callback={searchItems} />
             </HeroImage>
           </div>
         ) : null}
@@ -109,19 +124,19 @@ class Home extends Component {
             header={
               <div className="rmdb-grid-header">
                 <h1>
-                  {this.state.searchTerm ? "Search Result" : "Popular Movies"}
+                  {searchTerm ? "Search Result" : "Popular Movies"}
                 </h1>
                 <StarRating
                   totalStars={5}
-                  selectStar={this.selectStar}
-                  starsSelected={this.state.rating / 2}
+                  selectStar={selectStar}
+                  starsSelected={rating / 2}
                 />
               </div>
             }
-            loading={this.state.loading}
+            loading={loading}
           >
-            {this.state.movies
-              .filter((movie) => movie.vote_average < this.state.rating - 1)
+            {movies
+              .filter((movie) => movie.vote_average < rating - 1)
               .map((element, i) => {
                 return (
                   <MovieThumb
@@ -138,10 +153,10 @@ class Home extends Component {
                 );
               })}
           </FourColGrid>
-          {this.state.loading ? <Spinner /> : null}
-          {this.state.currentPage <= this.state.totalPages &&
-          !this.state.loading ? (
-            <LoadMoreBtn text="Load More" onClick={this.loadMoreItems} />
+          {loading ? <Spinner /> : null}
+          {currentPage <= totalPages &&
+          !loading ? (
+            <LoadMoreBtn text="Load More" onClick={loadMoreItems} />
           ) : null}
         </div>
       </div>
