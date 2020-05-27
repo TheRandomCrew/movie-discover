@@ -4,7 +4,7 @@ import "./HeroImage.css";
 
 const HeroImage = ({ movieId, image, title, children }) => (
   <div
-    className="rmdb-heroimage"
+    className="md-heroimage"
     style={{
       background: `linear-gradient(to bottom, rgba(0,0,0,0)
       39%, rgba(0,0,0,0)
@@ -12,17 +12,15 @@ const HeroImage = ({ movieId, image, title, children }) => (
       100%), url('${image}'), #1c1c1c`,
     }}
   >
-    <div className="rmdb-heroimage-content">
-      <div className="rmdb-heroimage-text">
+    <div className="md-heroimage-content">
+      <div className="md-heroimage-text">
         <p>Featured today:</p>
         <Link to={`/${movieId}`}>
           <h1>{title}</h1>
         </Link>
       </div>
-      <div>
-        <p>Don't see your favorite movie? Type the name here:</p>
-        {children}
-      </div>
+      <p>Don't see your favorite movie? Type the name here:</p>
+      <div>{children}</div>
     </div>
   </div>
 );

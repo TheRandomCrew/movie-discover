@@ -22,7 +22,7 @@ const Discover = ({
   selectStar,
   loadMoreItems,
 }) => (
-  <div className="rmdb-home">
+  <div className="md-home">
     {heroImage ? (
       <div>
         <HeroImage
@@ -34,10 +34,10 @@ const Discover = ({
         </HeroImage>
       </div>
     ) : null}
-    <div className="rmdb-home-grid">
+    <div className="md-home-grid">
       <FourColGrid
         header={
-          <div className="rmdb-grid-header">
+          <div className="md-grid-header">
             <h1>{searchTerm ? "Search Result" : "Popular Movies"}</h1>
             <StarRating
               totalStars={5}

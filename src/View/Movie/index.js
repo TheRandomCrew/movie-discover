@@ -3,7 +3,6 @@ import Navigation from "./Navigation";
 import MovieInfo from "./MovieInfo";
 import MovieInfoBar from "./MovieInfoBar";
 import Spinner from "../Spinner";
-import "./Movie.css";
 
 const Movie = ({ movie, directors, loading }) => (
   <div>

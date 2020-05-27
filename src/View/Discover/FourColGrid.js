@@ -1,24 +1,17 @@
 import React from "react";
 import "./FourColGrid.css";
 
-const FourColGrid = ({ children, header, loading }) => {
-  const renderElements = () => {
-    const gridElements = children.map((element, i) => {
-      return (
-        <div key={i} className="rmdb-grid-element">
+const FourColGrid = ({ children, header, loading }) => (
+  <div className="md-grid">
+    {header && !loading ? header : null}
+    <div className="md-grid-content">
+      {children.map((element, i) => (
+        <div key={i} className="md-grid-element">
           {element}
         </div>
-      );
-    });
-    return gridElements;
-  };
-
-  return (
-    <div className="rmdb-grid">
-      {header && !loading ? header : null}
-      <div className="rmdb-grid-content">{renderElements()}</div>
+      ))}
     </div>
-  );
-};
+  </div>
+);
 
 export default FourColGrid;

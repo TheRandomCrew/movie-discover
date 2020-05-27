@@ -1,4 +1,4 @@
-.rmdb-navigation {
+.md-navigation {
   width: 100%;
   height: 50px;
   background: #353535;
@@ -10,13 +10,13 @@
   padding-top: 10px;
 }
 
-.rmdb-navigation-content {
+.md-navigation div {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-.rmdb-navigation-content p {
+.md-navigation div p {
   font-family: var(--font-roboto);
   font-size: 22px;
   float: left;

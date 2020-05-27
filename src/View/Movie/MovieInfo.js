@@ -5,15 +5,15 @@ import "./MovieInfo.css";
 
 const MovieInfo = ({ movie, directors }) => (
   <div
-    className="rmdb-movieinfo"
+    className="md-movieinfo"
     style={{
       background: movie.backdrop_path
         ? `url('${IMAGE_BASE_URL}${BACKDROP_SIZE}${movie.backdrop_path}')`
         : "#000",
     }}
   >
-    <div className="rmdb-movieinfo-content">
-      <div className="rmdb-movieinfo-thumb">
+    <div className="md-movieinfo-content">
+      <div className="md-movieinfo-thumb">
         <MovieThumb
           image={
             movie.poster_path
@@ -23,12 +23,12 @@ const MovieInfo = ({ movie, directors }) => (
           clickable={false}
         />
       </div>
-      <div className="rmdb-movieinfo-text">
+      <div className="md-movieinfo-text">
         <h1>{movie.title}</h1>
         <h3>PLOT</h3>
         <p>{movie.overview}</p>
         <h3>IMDB RATING</h3>
-        <div className="rmdb-rating">
+        <div className="md-rating">
           <meter
             min="0"
             max="100"
@@ -37,12 +37,12 @@ const MovieInfo = ({ movie, directors }) => (
             high="70"
             value={movie.vote_average * 10}
           />
-          <p className="rmdb-score">{movie.vote_average}</p>
+          <p className="md-score">{movie.vote_average}</p>
         </div>
         {directors.length > 1 ? <h3>DIRECTORS</h3> : <h3>DIRECTOR</h3>}{" "}
         {directors.map((element, i) => {
           return (
-            <p key={i} className="rmdb-director">
+            <p key={i} className="md-director">
               {element.name}
             </p>
           );

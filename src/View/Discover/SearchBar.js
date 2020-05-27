@@ -19,16 +19,16 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div className="rmdb-searchbar">
-        <div className="rmdb-searchbar-content">
+      <div className="md-searchbar">
+        <div>
           <img
             src="https://img.icons8.com/cotton/50/000000/search--v2.png"
-            className="rmdb-icon-search"
+            className="md-icon-search"
             alt="search"
           />
           <input
             type="text"
-            className="rmdb-searchbar-input"
+            className="md-searchbar-input"
             placeholder="Search for a movie..."
             onChange={this.doSearch}
             value={this.state.value}

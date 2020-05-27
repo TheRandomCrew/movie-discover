@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "./MovieThumb.css";
 
 const MovieThumb = ({ image, movieId, movieName }) => (
-  <div className="rmdb-moviethumb">
+  <div className="md-moviethumb">
     <Link
       to={{
         pathname: `/${movieId}`,
