@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import "./MovieThumb.css";
 
 const MovieThumb = ({image, movieId, movieName, clickable}) => {
-  if (!movieId) return (<p>No movie</p>);
   return (
     <div className="rmdb-moviethumb">
       {clickable ? (

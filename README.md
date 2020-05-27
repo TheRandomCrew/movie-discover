@@ -10,13 +10,12 @@
 <br/>
 <p align="center">
   <a href="https://github.com/Israel-Laguan/movie-discover/">
-    <img src="public/MovieDiscovery.png"/>
+    <img src="docs/MovieDiscovery.png"/>
   </a>
 
   <h1 align="center">
 	Movie Discovery App
   </h1>
-
   <p align="center">
     <br/>
     <a href="https://github.com/Israel-Laguan/movie-discover/issues">Report a Bug</a>
@@ -51,9 +50,18 @@ the movie.
 
 ## How to Use the App
 
-- Find the most popular movie at the moment on the front page
+- Discover the most popular movie at the moment on the front page
+
+![discover](docs/discover.png)
+
 - Click on specific movie to view full-blown information
+
+![movie](docs/movie.png)
+
 - Use the Search bar to find you favorites movies and their information
+
+![search](docs/search.png)
+
 - Bookmark and use the App at your own pace!
 
 # Features
