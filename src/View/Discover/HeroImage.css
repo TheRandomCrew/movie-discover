@@ -18,6 +18,7 @@
 }
 
 .rmdb-heroimage-content {
+  min-width: 500px;
   padding: 20px;
   margin: 0 auto;
   display: flex;
@@ -40,14 +41,16 @@
 .rmdb-heroimage-text h1 {
   font-family: var(--font-roboto);
   font-size: 48px;
-  color: #fff;
+}
+
+.rmdb-heroimage-text>a:hover {
+  color: cadetblue;
 }
 
 .rmdb-heroimage-text p {
   font-family: var(--font-roboto);
   font-size: 22px;
   line-height: 26px;
-  color: #fff;
 }
 
 @media screen and (max-width: 720px) {
@@ -57,12 +60,10 @@
 
   .rmdb-heroimage-text h1 {
     font-size: 38px;
-    color: #fff;
   }
 
   .rmdb-heroimage-text p {
     font-size: 16px;
     line-height: 20px;
-    color: #fff;
   }
 }
