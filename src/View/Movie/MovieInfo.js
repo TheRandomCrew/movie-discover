@@ -52,7 +52,6 @@ const MovieInfo = ({ movie, directors }) => (
             More
             <img
               src="https://img.icons8.com/cute-clipart/64/000000/open-in-browser.png"
-              
               alt="More info"
             />
           </a>
