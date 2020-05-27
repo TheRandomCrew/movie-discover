@@ -1,12 +1,6 @@
 import React, { Component } from "react";
 import { Discover as DiscoverView, MovieThumb } from "../../View";
-import {
-  API_URL,
-  API_KEY,
-  IMAGE_BASE_URL,
-  POSTER_SIZE,
-  BACKDROP_SIZE,
-} from "../../config";
+import { API_URL, API_KEY, IMAGE_BASE_URL, POSTER_SIZE } from "../../config";
 
 const defaultState = {
   rating: 10,
@@ -96,7 +90,6 @@ class Discover extends Component {
     return (
       <DiscoverView
         rating={rating}
-        movies={movies}
         heroImage={heroImage}
         loading={loading}
         currentPage={currentPage}
