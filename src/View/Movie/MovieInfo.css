@@ -1,4 +1,4 @@
-.rmdb-movieinfo {
+.md-movieinfo {
   background-size: cover !important;
   background-position: center !important;
   width: 100%;
@@ -17,7 +17,7 @@
   }
 }
 
-.rmdb-movieinfo-content {
+.md-movieinfo-content {
   max-width: 1280px;
   width: 100%;
   height: 100%;
@@ -26,7 +26,7 @@
   position: relative;
 }
 
-.rmdb-movieinfo-thumb {
+.md-movieinfo-thumb {
   width: 350px;
   height: 100%;
   overflow: hidden;
@@ -34,7 +34,7 @@
   left: 0px;
 }
 
-.rmdb-movieinfo-text {
+.md-movieinfo-text {
   height: 100%;
   width: auto;
   color: #fff;
@@ -45,41 +45,45 @@
   left: 360px;
 }
 
-.rmdb-movieinfo-text h1 {
+.md-movieinfo-text h1 {
   font-family: var(--font-roboto);
   font-size: 48px;
   margin: 0;
 }
 
-.rmdb-movieinfo-text h3 {
+.md-movieinfo-text h3 {
   font-size: 16px;
   line-height: 0;
   margin-top: 30px;
   margin-bottom: 10px;
 }
 
-.rmdb-movieinfo-text p {
+.md-movieinfo-text p {
   font-family: var(--font-roboto);
   font-size: 18px;
   line-height: 26px;
 }
 
-.rmdb-rating {
+.md-rating {
   width: 250px;
   height: 20px;
   margin-top: 20px;
   position: relative;
 }
 
-.rmdb-score {
+.md-score {
   position: absolute;
   margin: 0;
   right: 0px;
   top: -3px;
 }
 
-.rmdb-director {
+.md-director {
   margin: 10px 0;
+}
+
+.md-movieinfo-text a:hover {
+  transform: scale(1.1);
 }
 
 .homepage-link {

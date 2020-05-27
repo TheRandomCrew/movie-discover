@@ -24,6 +24,10 @@
   </p>
 </p>
 
+# [Live Version Here](http://movie-discover.surge.sh/)
+
+![discover](docs/discover.png)
+
 ## Table of Contents
 
 1. [The Project](#the-project)
@@ -48,11 +52,11 @@ information about movies. If the search field is empty, show the discovery resul
 - Upon clicking, a detail view must be shown, displaying more information about
 the movie.
 
-## How to Use the App
+## Using the App
 
 - Discover the most popular movie at the moment on the front page
 
-![discover](docs/discover.png)
+![rating](docs/rating.png)
 
 - Click on specific movie to view full-blown information
 

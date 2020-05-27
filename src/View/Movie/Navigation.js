@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import "./Navigation.css";
 
 const Navigation = ({ movie }) => (
-  <div className="rmdb-navigation">
-    <div className="rmdb-navigation-content">
+  <div className="md-navigation">
+    <div>
       <Link to="/">
         <p>Home</p>
       </Link>

@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => (
-  <div className="rmdb-header">
-    <div className="rmdb-header-content">
-      <Link to="/" className="rmdb-logo">
+  <div className="md-header">
+    <div className="md-header-content">
+      <Link to="/" className="md-logo">
         <img
           src="https://img.icons8.com/ultraviolet/40/000000/starred-ticket.png"
           alt="Movie"

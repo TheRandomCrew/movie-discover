@@ -1,4 +1,4 @@
-.rmdb-heroimage {
+.md-heroimage {
   background-size: 100%, cover !important;
   background-position: center, center !important;
   width: 100%;
@@ -17,7 +17,7 @@
   }
 }
 
-.rmdb-heroimage-content {
+.md-heroimage-content {
   min-width: 500px;
   padding: 20px;
   margin: 0 auto;
@@ -30,7 +30,7 @@
   color: #fff;
 }
 
-.rmdb-heroimage-text {
+.md-heroimage-text {
   z-index: 100;
   max-width: 700px;
   margin-right: 20px;
@@ -38,31 +38,31 @@
   background: rgba(0, 0, 0, 0);
 }
 
-.rmdb-heroimage-text h1 {
+.md-heroimage-text h1 {
   font-family: var(--font-roboto);
   font-size: 48px;
 }
 
-.rmdb-heroimage-text>a:hover {
+.md-heroimage-text > a:hover {
   color: cadetblue;
 }
 
-.rmdb-heroimage-text p {
+.md-heroimage-text p {
   font-family: var(--font-roboto);
   font-size: 22px;
   line-height: 26px;
 }
 
 @media screen and (max-width: 720px) {
-  .rmdb-heroimage-text {
+  .md-heroimage-text {
     max-width: 100%;
   }
 
-  .rmdb-heroimage-text h1 {
+  .md-heroimage-text h1 {
     font-size: 38px;
   }
 
-  .rmdb-heroimage-text p {
+  .md-heroimage-text p {
     font-size: 16px;
     line-height: 20px;
   }

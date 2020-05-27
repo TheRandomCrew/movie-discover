@@ -1,4 +1,4 @@
-.rmdb-header {
+.md-header {
   width: 100%;
   height: auto;
   background: #1c1c1c;
@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-.rmdb-header-content {
+.md-header-content {
   max-width: 1280px;
   min-height: 40px;
   height: auto;
@@ -16,12 +16,12 @@
   overflow: hidden;
 }
 
-.rmdb-logo {
+.md-logo {
   display: flex;
   align-items: center;
 }
 
-.rmdb-logo span {
+.md-logo span {
   color: white;
   font-family: var(--font-roboto);
   font-size: xx-large;
@@ -30,12 +30,12 @@
 }
 
 @media screen and (max-width: 500px) {
-  .rmdb-header-content {
+  .md-header-content {
     max-width: 1280px;
     min-height: 0px;
   }
 
-  .rmdb-logo {
+  .md-logo {
     width: 150px;
     margin-top: 5px;
   }

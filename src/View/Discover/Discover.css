@@ -1,14 +1,14 @@
-.rmdb-home {
+.md-home {
   margin-bottom: 100px;
 }
 
-.rmdb-home-grid {
+.md-home-grid {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-.rmdb-grid-header {
+.md-grid-header {
   display: flex;
   justify-content: space-between;
 }
