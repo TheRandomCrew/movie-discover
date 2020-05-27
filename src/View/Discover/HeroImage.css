@@ -1,0 +1,69 @@
+.rmdb-heroimage {
+  background-size: 100%, cover !important;
+  background-position: center, center !important;
+  width: 100%;
+  height: 100%;
+  height: 600px;
+  position: relative;
+  animation: animateHeroimage 1s;
+}
+
+@keyframes animateHeroimage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.rmdb-heroimage-content {
+  min-width: 500px;
+  padding: 20px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+}
+
+.rmdb-heroimage-text {
+  z-index: 100;
+  max-width: 700px;
+  margin-right: 20px;
+  min-height: 100px;
+  background: rgba(0, 0, 0, 0);
+}
+
+.rmdb-heroimage-text h1 {
+  font-family: var(--font-roboto);
+  font-size: 48px;
+}
+
+.rmdb-heroimage-text>a:hover {
+  color: cadetblue;
+}
+
+.rmdb-heroimage-text p {
+  font-family: var(--font-roboto);
+  font-size: 22px;
+  line-height: 26px;
+}
+
+@media screen and (max-width: 720px) {
+  .rmdb-heroimage-text {
+    max-width: 100%;
+  }
+
+  .rmdb-heroimage-text h1 {
+    font-size: 38px;
+  }
+
+  .rmdb-heroimage-text p {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}

@@ -1,0 +1,42 @@
+.rmdb-header {
+  width: 100%;
+  height: auto;
+  background: #1c1c1c;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.rmdb-header-content {
+  max-width: 1280px;
+  min-height: 40px;
+  height: auto;
+  padding: 10px 0px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.rmdb-logo {
+  display: flex;
+  align-items: center;
+}
+
+.rmdb-logo span {
+  color: white;
+  font-family: var(--font-roboto);
+  font-size: xx-large;
+  font-weight: bold;
+  font-style: italic;
+}
+
+@media screen and (max-width: 500px) {
+  .rmdb-header-content {
+    max-width: 1280px;
+    min-height: 0px;
+  }
+
+  .rmdb-logo {
+    width: 150px;
+    margin-top: 5px;
+  }
+}
