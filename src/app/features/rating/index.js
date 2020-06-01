@@ -10,5 +10,8 @@ const ratingSlice = createSlice({
   },
 });
 
+export const ratingSelector = (state) => state.rating;
+
 export const { changeRating } = ratingSlice.actions;
+
 export default ratingSlice.reducer;

@@ -30,6 +30,13 @@ const moviesSlice = createSlice({
       state.loading = false;
       state.hasErrors = true;
     },
+    getMoreMovies: (state, {payload}) => {
+      state.movies = [...state.movies, ...payload.results];
+      state.currentPage = payload.page;
+      state.totalPages = payload.total_pages;
+      state.loading = false;
+      state.hasErrors = false;
+    }
   },
 });
 
