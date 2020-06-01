@@ -57,7 +57,7 @@ class Discover extends Component {
     } else {
       endpoint = `${API_URL}search/movie?api_key=${API_KEY}&query${
         this.state.searchTerm
-      }$page=${this.state.currentPage + 1}`;
+      }&page=${this.state.currentPage + 1}`;
     }
     this.fetchItems(endpoint);
   };
