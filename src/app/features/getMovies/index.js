@@ -85,11 +85,10 @@ export function fetchMoreMovies(
   return async (dispatch) => {
     dispatch(getMoviesStart());
     try {
-      const response = await fetch(`${endpoint}&page=${currentPage + 1}`);
-      await response.json();
-      fetch(endpoint)
+      await fetch(`${endpoint}&page=${currentPage}`)
         .then((result) => result.json())
         .then((result) => {
+          console.log('---------->',result)
           dispatch(getMoviesSuccess(result));
         })
         .catch((error) => {

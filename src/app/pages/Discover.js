@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Discover as DiscoverView, MovieThumb } from "../../View";
 import { API_URL, API_KEY, IMAGE_BASE_URL, POSTER_SIZE } from "../../config";
@@ -35,9 +35,13 @@ const Discover = () => {
     qTotalPages,
   } = useSelector(searchSelector);
 
+  const prevMoviesRef = useRef(movies);
   useEffect(() => {
-    dispatch(fetchMovies());
-  }, [dispatch]);
+    if(searchTerm === '' && prevMoviesRef.current.length === 0 && movies.length === 0) {
+      dispatch(fetchMovies())
+    };
+    prevMoviesRef.current = movies;
+  }, [dispatch, searchTerm, movies]);
 
   const loadMoreItems = () =>
     dispatch(
@@ -45,11 +49,11 @@ const Discover = () => {
         ? fetchMoreQueried(
             `${API_URL}search/movie?api_key=${API_KEY}`,
             searchTerm,
-            qCurrentPage
+            qCurrentPage + 1
           )
         : fetchMoreMovies(
             `${API_URL}movie/popular?api_key=${API_KEY}`,
-            currentPage
+            currentPage + 1
           )
     );
 

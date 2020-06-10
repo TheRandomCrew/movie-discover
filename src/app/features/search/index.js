@@ -55,9 +55,7 @@ export function fetchQueried(
   return async (dispatch) => {
     dispatch(getQueriedStart());
     try {
-      const response = await fetch(`${endpoint}&query=${searchTerm}`);
-      await response.json();
-      fetch(endpoint)
+      await fetch(`${endpoint}&query=${searchTerm}`)
         .then((result) => result.json())
         .then((result) => {
           dispatch(getQueriedSuccess(result));
@@ -81,11 +79,9 @@ export function fetchMoreQueried(
   return async (dispatch) => {
     dispatch(getQueriedStart());
     try {
-      const response = await fetch(
-        `${endpoint}&query=${searchTerm}&page=${currentPage + 1}`
-      );
-      await response.json();
-      fetch(endpoint)
+      await fetch(
+        `${endpoint}&query=${searchTerm}&page=${currentPage}`
+      )
         .then((result) => result.json())
         .then((result) => {
           dispatch(getQueriedSuccess(result));

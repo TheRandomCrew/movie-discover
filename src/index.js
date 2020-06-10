@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import * as serviceWorker from "./app/serviceWorker";
 
 const render = () => {
-  const App = require("./app/App").default;
+  const App = require("./app").default;
   ReactDOM.render(
     <React.StrictMode>
       <Provider store={store}>
@@ -20,7 +20,7 @@ const render = () => {
 render();
 
 if (process.env.NODE_ENV === "development" && module.hot) {
-  module.hot.accept("./app/App", render);
+  module.hot.accept("./app", render);
 }
 
 serviceWorker.register();
