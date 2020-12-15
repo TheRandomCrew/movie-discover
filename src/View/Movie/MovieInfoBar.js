@@ -22,7 +22,7 @@ const MovieInfoBar = ({ time, budget, revenue }) => (
   <div className="md-movieinfobar">
     <div>
       {infoItems.map((item, i) => (
-        <div className="md-movieinfobar-content-col">
+        <div className="md-movieinfobar-content-col" key={Math.random()}>
           <img src={item.img} alt={item.text} />
           <span>
             {item.text}:{" "}
