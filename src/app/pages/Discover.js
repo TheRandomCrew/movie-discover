@@ -1,106 +1,92 @@
-import React, { Component } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Discover as DiscoverView, MovieThumb } from "../../View";
 import { API_URL, API_KEY, IMAGE_BASE_URL, POSTER_SIZE } from "../../config";
+import {
+  fetchMovies,
+  fetchMoreMovies,
+  moviesSelector,
+} from "../features/getMovies";
+import { changeRating, ratingSelector } from "../features/rating";
+import {
+  fetchQueried,
+  fetchMoreQueried,
+  searchSelector,
+} from "../features/search";
 
-const defaultState = {
-  rating: 10,
-  movies: [],
-  heroImage: null,
-  loading: false,
-  currentPage: 0,
-  totalPages: 0,
-  searchTerm: "",
-};
+const Discover = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isQuery, setIsQuery] = useState(false);
+  const dispatch = useDispatch();
+  const {
+    loading,
+    hasErrors,
+    movies,
+    heroImage,
+    currentPage,
+    totalPages,
+  } = useSelector(moviesSelector);
+  const { current } = useSelector(ratingSelector);
+  const {
+    qLoading,
+    qHasErrors,
+    qMovies,
+    qCurrentPage,
+    qTotalPages,
+  } = useSelector(searchSelector);
 
-class Discover extends Component {
-  state = defaultState;
+  const prevMoviesRef = useRef(movies);
+  useEffect(() => {
+    if(searchTerm === '' && prevMoviesRef.current.length === 0 && movies.length === 0) {
+      dispatch(fetchMovies())
+    };
+    prevMoviesRef.current = movies;
+  }, [dispatch, searchTerm, movies]);
 
-  componentDidMount() {
-    this.setState({ loading: true });
-    const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}`;
-    this.fetchItems(endpoint);
-  }
+  const loadMoreItems = () =>
+    dispatch(
+      isQuery
+        ? fetchMoreQueried(
+            `${API_URL}search/movie?api_key=${API_KEY}`,
+            searchTerm,
+            qCurrentPage + 1
+          )
+        : fetchMoreMovies(
+            `${API_URL}movie/popular?api_key=${API_KEY}`,
+            currentPage + 1
+          )
+    );
 
-  selectStar = (star) => {
-    this.setState((prevState) => ({
-      ...prevState,
-      rating: star * 2,
-    }));
-  };
+  const selectStar = (star) => dispatch(changeRating(star * 2));
 
-  searchItems = (searchTerm) => {
-    let endpoint = "";
-    this.setState({
-      movies: [],
-      loading: true,
-      searchTerm,
-    });
+  const searchItems = (query) => {
+    setSearchTerm(query);
 
-    if (searchTerm === "") {
-      endpoint = `${API_URL}movie/popular?api_key=${API_KEY}`;
-    } else {
-      endpoint = `${API_URL}search/movie?api_key=${API_KEY}&query=${searchTerm}`;
+    if (searchTerm) {
+      setIsQuery(true);
+      dispatch(
+        fetchQueried(`${API_URL}search/movie?api_key=${API_KEY}`, searchTerm)
+      );
     }
-    this.fetchItems(endpoint);
   };
 
-  loadMoreItems = () => {
-    let endpoint = "";
-    this.setState({
-      loading: true,
-    });
-
-    if (this.state.searchTerm === "") {
-      endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&page=${
-        this.state.currentPage + 1
-      }`;
-    } else {
-      endpoint = `${API_URL}search/movie?api_key=${API_KEY}&query${
-        this.state.searchTerm
-      }$page=${this.state.currentPage + 1}`;
-    }
-    this.fetchItems(endpoint);
-  };
-
-  fetchItems = (endpoint) => {
-    fetch(endpoint)
-      .then((result) => result.json())
-      .then((result) => {
-        this.setState({
-          movies: [...this.state.movies, ...result.results],
-          heroImage: this.state.heroImage || result.results[0],
-          loading: false,
-          currentPage: result.page,
-          totalPages: result.total_pages,
-        });
-      });
-  };
-
-  render() {
-    const {
-      rating,
-      movies,
-      heroImage,
-      loading,
-      currentPage,
-      totalPages,
-      searchTerm,
-    } = this.state;
-    const { searchItems, selectStar, loadMoreItems } = this;
-    return (
-      <DiscoverView
-        rating={rating}
-        heroImage={heroImage}
-        loading={loading}
-        currentPage={currentPage}
-        totalPages={totalPages}
-        searchTerm={searchTerm}
-        searchItems={searchItems}
-        selectStar={selectStar}
-        loadMoreItems={loadMoreItems}
-      >
-        {movies
-          .filter((movie) => movie.vote_average < rating - 1)
+  return (
+    <DiscoverView
+      rating={current}
+      heroImage={heroImage}
+      loading={isQuery ? qLoading : loading}
+      currentPage={isQuery ? qCurrentPage : currentPage}
+      totalPages={isQuery ? qTotalPages : totalPages}
+      searchTerm={searchTerm}
+      searchItems={searchItems}
+      selectStar={selectStar}
+      loadMoreItems={loadMoreItems}
+    >
+      {hasErrors || qHasErrors ? (
+        <p>Unable to display Movies.</p>
+      ) : isQuery ? (
+        qMovies
+          .filter((movie) => movie.vote_average < current - 1)
           .map((element, i) => {
             return (
               <MovieThumb
@@ -114,10 +100,27 @@ class Discover extends Component {
                 movieName={element.original_title}
               />
             );
-          })}
-      </DiscoverView>
-    );
-  }
-}
+          })
+      ) : (
+        movies
+          .filter((movie) => movie.vote_average < current - 1)
+          .map((element, i) => {
+            return (
+              <MovieThumb
+                key={i}
+                image={
+                  element.poster_path
+                    ? `${IMAGE_BASE_URL}${POSTER_SIZE}/${element.poster_path}`
+                    : "https://img.icons8.com/clouds/500/000000/no-image.png"
+                }
+                movieId={element.id}
+                movieName={element.original_title}
+              />
+            );
+          })
+      )}
+    </DiscoverView>
+  );
+};
 
 export default Discover;
