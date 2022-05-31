@@ -1,8 +1,8 @@
 <!-- PROJECT SHIELDS -->
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
-[![Issues-open][issues-open-shield]][issues-url]
-[![Issues-closed][issues-closed-shield]][issues-url]
+[![Issues-open][issues-open-shield]][issues-open-url]
+[![Issues-closed][issues-closed-shield]][issues-close-url]
 [![Contributors][contributors-shield]][contributors-url]
 [![contributions welcome][contributions-welcome]][issues-url]
 
@@ -216,6 +216,8 @@ Feel free to fork this project and improve it
 [stars-url]: https://github.com/Israel-Laguan/movie-discover/stargazers
 [issues-open-shield]: https://img.shields.io/github/issues/Israel-Laguan/movie-discover?style=for-the-badge
 [issues-url]: https://github.com/Israel-Laguan/movie-discover/issues
+[issues-open-url]: https://github.com/Israel-Laguan/movie-discover/issues?q=is%3Aopen+is%3Aissue
+[issues-close-url]: https://github.com/Israel-Laguan/movie-discover/issues?q=is%3Aissue+is%3Aclosed
 [issues-closed-shield]: https://img.shields.io/github/issues-closed/Israel-Laguan/movie-discover?style=for-the-badge
 [badge-framework]: https://img.shields.io/badge/store-Redux-000?style=for-the-badge&logo=redux
 [framework-url]: https://redux.js.org/
