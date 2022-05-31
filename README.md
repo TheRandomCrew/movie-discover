@@ -1,4 +1,5 @@
 <!-- PROJECT SHIELDS -->
+
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues-open][issues-open-shield]][issues-open-url]
@@ -30,13 +31,21 @@
 
 ## Table of Contents
 
-1. [The Project](#the-project)
-2. [Features](#features)
-3. [Run It](#run-it)
-4. [Author](#author)
-5. [Contributing](#contributing)
-6. [Show your support](#show-your-support)
-7. [License](#license)
+- [Live Version Here](#live-version-here)
+  - [Table of Contents](#table-of-contents)
+- [The Project](#the-project)
+  - [Using the App](#using-the-app)
+- [Features](#features)
+- [Run It](#run-it)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+  - [Available Scripts](#available-scripts)
+    - [`npm start`](#npm-start)
+    - [`npm test`](#npm-test)
+- [Author](#author)
+- [Contributing](#contributing)
+- [Show your support](#show-your-support)
+- [License](#license)
 
 # The Project
 
@@ -45,12 +54,12 @@ Your local movie theater is in dire need of attracting new audience. To do this,
 The movie theater is requesting the following features for the first version:
 
 - Upon opening the web application, users should be able to see a list of
-movies suggested by the application and sorted by popularity.
+  movies suggested by the application and sorted by popularity.
 - In the discovery view, add a search bar at the top to allow users to query
-information about movies. If the search field is empty, show the discovery results.
+  information about movies. If the search field is empty, show the discovery results.
 - Add a rating filter in the form of five stars. When selecting a star, all the stars to the left should be selected as well. If the star clicked is the currently active, disable the filter.
 - Upon clicking, a detail view must be shown, displaying more information about
-the movie.
+  the movie.
 
 ## Using the App
 
@@ -70,10 +79,10 @@ the movie.
 
 # Features
 
-![javascript][]
-![react][]
+[![][javascript]][javascript-url]
+[![][react]][react-url]
 [![Framework][badge-framework]][framework-url]
-![css][]
+[![][css]][css-url]
 
 - Using Create React App (CRA)
 - Redux and Redux Toolkit
@@ -132,7 +141,6 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-
 # Author
 
 <table style="width:100%">
@@ -177,7 +185,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
         </div>
     </td>
   </tr>
-</table> 
+</table>
 
 # Contributing
 
@@ -208,6 +216,7 @@ StarRating: [Here](https://codesandbox.io/s/v0n20v6143)
 Feel free to fork this project and improve it
 
 <!-- MARKDOWN LINKS & IMAGES -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/Israel-Laguan/movie-discover?style=for-the-badge
 [contributors-url]: https://github.com/Israel-Laguan/movie-discover/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/Israel-Laguan/movie-discover?style=for-the-badge
@@ -220,9 +229,15 @@ Feel free to fork this project and improve it
 [issues-close-url]: https://github.com/Israel-Laguan/movie-discover/issues?q=is%3Aissue+is%3Aclosed
 [issues-closed-shield]: https://img.shields.io/github/issues-closed/Israel-Laguan/movie-discover?style=for-the-badge
 [badge-framework]: https://img.shields.io/badge/store-Redux-000?style=for-the-badge&logo=redux
-[framework-url]: https://redux.js.org/
 [contributions-welcome]: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=for-the-badge
 [badge-license]: https://img.shields.io/:license-mit-blue.svg?style=for-the-badge
 [react]: https://img.shields.io/badge/React-16+-61DAFB?style=for-the-badge&logo=react
 [javascript]: https://img.shields.io/badge/JAVASCRIPT-ES6%2B-F7DF1E?style=for-the-badge&logo=javascript
 [css]: https://img.shields.io/badge/style-CSS-1572B6?style=for-the-badge&logo=css3
+
+<!-- URL -->
+
+[react-url]: https://reactjs.org/
+[css-url]: https://www.w3schools.com/css/
+[javascript-url]: https://devdocs.io/javascript/
+[framework-url]: https://redux.js.org/
